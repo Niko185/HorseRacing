@@ -1,10 +1,8 @@
 package com.example.horseracing.di
 
 import android.content.Context
-import com.example.horseracing.data.local.race.repository.AppDatabase
-import com.example.horseracing.data.local.race.repository.HistoryRepositoryImpl
-import com.example.horseracing.data.local.race.repository.RaceDao
-import com.example.horseracing.domain.repository.HistoryRepository
+import com.example.horseracing.data.local.AppDatabase
+import com.example.horseracing.data.local.dao.RaceDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

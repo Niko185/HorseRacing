@@ -1,4 +1,4 @@
-package com.example.horseracing.data.local.race.repository
+package com.example.horseracing.data.local.converter
 
 import androidx.room.TypeConverter
 import com.example.horseracing.domain.model.Horse

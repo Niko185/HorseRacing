@@ -1,6 +1,5 @@
 package com.example.horseracing.presentation.activity
 
-
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +25,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         initViewPagerWithTabLayout()
-
     }
 
     private fun initViewPagerWithTabLayout(){
@@ -41,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                 1 -> getString(R.string.history)
                 else -> ""
             }
-
         }.attach()
     }
 }

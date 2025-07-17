@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.horseracing.domain.model.Race
 import com.example.horseracing.domain.usecase.race.GetHistoryRaceUseCase
-import com.example.horseracing.presentation.fragments.race.RaceState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,9 +25,9 @@ class HistoryViewModel @Inject constructor(
 
     private fun loadHistory() {
         viewModelScope.launch {
-                getHistoryRaceUseCase()
-                    .collect { races ->
-                        _races.value = races
+            getHistoryRaceUseCase()
+                .collect { races ->
+                    _races.value = races
                 }
         }
     }

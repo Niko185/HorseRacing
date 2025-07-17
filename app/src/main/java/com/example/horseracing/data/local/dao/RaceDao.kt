@@ -1,9 +1,9 @@
-package com.example.horseracing.data.local.race.repository
+package com.example.horseracing.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.horseracing.domain.model.Race
+import com.example.horseracing.data.local.entity.RaceEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
