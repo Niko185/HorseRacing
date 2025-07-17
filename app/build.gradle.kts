@@ -52,6 +52,7 @@ android {
         // Room
         implementation(libs.room.runtime)
         implementation(libs.room.ktx)
+        implementation(libs.androidx.recyclerview)
         ksp(libs.room.compiler)
 
         // Hilt

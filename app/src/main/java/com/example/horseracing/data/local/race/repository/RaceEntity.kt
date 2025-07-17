@@ -9,6 +9,8 @@ import com.example.horseracing.domain.model.Horse
 @Entity(tableName = "races")
 data class RaceEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
+
+
     val timestamp: Long = System.currentTimeMillis(),
 
     @ColumnInfo(name = "horses")
