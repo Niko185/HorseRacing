@@ -9,8 +9,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.horseracing.R
 import com.example.horseracing.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
