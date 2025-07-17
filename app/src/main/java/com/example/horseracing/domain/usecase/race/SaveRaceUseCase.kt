@@ -1,8 +1,5 @@
 package com.example.horseracing.domain.usecase.race
 
-import android.content.Context
-import com.example.horseracing.data.local.race.repository.AppDatabase
-import com.example.horseracing.data.local.race.repository.HistoryRepositoryImpl
 import com.example.horseracing.domain.model.Race
 import com.example.horseracing.domain.repository.HistoryRepository
 import javax.inject.Inject

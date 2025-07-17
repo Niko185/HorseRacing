@@ -1,17 +1,15 @@
 package com.example.horseracing.presentation.fragments.race
 
-import android.content.Context
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.horseracing.domain.model.Race
 import com.example.horseracing.domain.usecase.race.GetRaceUseCase
 import com.example.horseracing.domain.usecase.race.SaveRaceUseCase
+import com.example.horseracing.presentation.utils.RaceErrors
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -31,38 +29,29 @@ class RaceViewModel @Inject constructor(
         _stateScreen.value = RaceState.ProgressState
         viewModelScope.launch {
             try {
-
                 getRaceUseCase().collect { race ->
                     currentRace = race
-                    _stateScreen.value = RaceState.ResultState(race)
+                    _stateScreen.value = RaceState.ResultState(race, false)
                 }
             } catch (e: Exception) {
-                _stateScreen.value = RaceState.ErrorState("Ошибка загрузки: ${e.message}")
+                _stateScreen.value = RaceState.ErrorState(RaceErrors.LOAD_ERROR)
             }
         }
     }
 
     fun saveCurrentRace() {
-        if (currentRace == null) {
-            _stateScreen.value = RaceState.ErrorState("Нет данных гонки для сохранения")
+        val raceToSave = currentRace
+        if (raceToSave == null) {
+            _stateScreen.value = RaceState.ErrorState(RaceErrors.NO_DATA_ERROR)
             return
         }
-
         viewModelScope.launch {
             try {
-
-                Log.d("SAVE_RACE", "Saving race: ${currentRace?.horses?.joinToString()}")
-
-                currentRace?.let { race ->
-                    saveRaceUseCase(race)
-                    _stateScreen.value = RaceState.SavedState
-                    Log.d("SAVE_RACE", "Race saved successfully")
-                }
+                saveRaceUseCase(raceToSave)
+                _stateScreen.value = RaceState.ResultState(raceToSave, true)
             } catch (e: Exception) {
-                Log.e("SAVE_RACE", "Error saving race", e)
-                _stateScreen.value = RaceState.ErrorState("Ошибка сохранения: ${e.message}")
+                _stateScreen.value = RaceState.ErrorState(RaceErrors.SAVE_ERROR)
             }
         }
     }
-
 }

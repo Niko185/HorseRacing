@@ -1,8 +1,8 @@
 package com.example.horseracing.di
 
-import com.example.horseracing.data.local.race.repository.HistoryRepositoryImpl
-import com.example.horseracing.data.local.race.repository.RaceDao
-import com.example.horseracing.data.local.race.repository.RaceRepositoryImpl
+import com.example.horseracing.data.local.repository.HistoryRepositoryImpl
+import com.example.horseracing.data.local.dao.RaceDao
+import com.example.horseracing.data.local.repository.RaceRepositoryImpl
 import com.example.horseracing.domain.repository.HistoryRepository
 import com.example.horseracing.domain.repository.RaceRepository
 import dagger.Module
