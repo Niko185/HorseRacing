@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Horse Racing</string>
+    <string name="racing">Скачки</string>
+    <string name="history">История</string>
+    <string name="result_race">Результаты забега</string>
+    <string name="start_race">Старт</string>
+    <string name="restart_race">Рестарт</string>
+    <string name="save_race">Сохранить забег</string>
+    <string name="helper_text">Нажмите кнопку старт чтобы рассчитать результаты забега</string>
+
 </resources>
